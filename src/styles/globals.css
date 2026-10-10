@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  :root {
+    --background: 250 40% 99%;
+    --foreground: 250 35% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 250 35% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 250 35% 14%;
+    --primary: 262 85% 62%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 250 30% 96%;
+    --secondary-foreground: 250 35% 14%;
+    --muted: 250 30% 96%;
+    --muted-foreground: 250 10% 46%;
+    --accent: 262 85% 62%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 250 24% 90%;
+    --input: 250 24% 90%;
+    --ring: 262 85% 62%;
+    --radius: 0.75rem;
+    --ink: #1b1838;
+    --paper: #f5f6fb;
+    --line: #e4e7f4;
+    --lime: #e3dbff;
+    --quiet: #5e637d;
+  }
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-jakarta), sans-serif;
+    font-size: 13px;
+  }
+  button,
+  input,
+  textarea {
+    font: inherit;
+  }
+  button {
+    cursor: pointer;
+  }
+  button,
+  a,
+  input,
+  textarea {
+    outline-offset: 4px;
+  }
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid var(--ink);
+  }
+  button {
+    transition:
+      background 0.18s,
+      transform 0.18s;
+  }
+  button:active {
+    transform: scale(0.98);
+  }
+  button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}

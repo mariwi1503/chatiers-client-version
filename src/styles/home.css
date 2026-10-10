@@ -1,0 +1,635 @@
+/* Home: readable feed, independent filters, and business discovery. */
+.navigation {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.profile-button strong {
+  font-size: 12px;
+}
+.profile-button small {
+  font-size: 11px;
+  line-height: 1.5;
+}
+.home-page-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-right: auto;
+}
+.feed-header {
+  min-height: 52px;
+}
+.feed .header-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--quiet);
+}
+.sidebar-community-link {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 22px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  font-weight: 600;
+}
+.sidebar-community-link > svg {
+  flex-shrink: 0;
+}
+.sidebar-community-link > svg:last-child {
+  margin-left: auto;
+}
+.sidebar-community-link small {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--quiet);
+  margin-top: 5px;
+}
+.home-feed-controls {
+  margin: 14px 0 18px;
+}
+.home-feed-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border-bottom: 1px solid var(--line);
+}
+.feed-mode-switch {
+  display: flex;
+  gap: 18px;
+}
+.feed-mode-switch button {
+  min-height: 48px;
+  padding: 8px 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--quiet);
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+}
+.feed-mode-switch button.active {
+  border-bottom-color: #6540c8;
+  color: var(--ink);
+}
+.feed-context-label {
+  font-size: 14px;
+  font-weight: 600;
+}
+.home-feed-toolbar .location-search {
+  flex-shrink: 0;
+  width: auto;
+}
+.home-feed-toolbar .location-trigger {
+  min-height: 44px;
+  font-size: 12px;
+  padding: 8px 0 8px 8px;
+}
+.feed-kind-filters {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 14px 0 4px;
+  scrollbar-width: thin;
+}
+.feed-kind-filters button {
+  flex: 0 0 auto;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--quiet);
+  white-space: nowrap;
+}
+.feed-kind-filters button.active {
+  background: var(--lime);
+  color: #4d3098;
+  border-color: #cfc0f7;
+  font-weight: 600;
+}
+.home-compose-prompt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  padding: 16px;
+  margin-bottom: 22px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #faf9fe;
+  font-size: 14px;
+  font-weight: 600;
+}
+.home-compose-prompt > span:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+}
+.home-compose-prompt small {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--quiet);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+.home-compose-prompt > svg {
+  flex-shrink: 0;
+  color: #6540c8;
+}
+.feed-query {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0 18px;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.feed-query button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  font-size: 12px;
+  color: #5a3fb0;
+}
+.empty-feed-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.secondary-feed-button {
+  min-height: 44px;
+  padding: 10px 14px;
+  background: var(--lime);
+  color: #4d3098;
+  border-radius: 8px;
+  font-weight: 600;
+}
+.post {
+  margin-bottom: 24px;
+  scroll-margin-top: 100px;
+}
+.post-header strong {
+  font-size: 15px;
+  line-height: 1.5;
+}
+.post-header small,
+.post-time {
+  display: block;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--quiet);
+}
+.post-time {
+  margin-top: 3px;
+}
+.post-header.post-card-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 44px;
+  column-gap: 8px;
+  row-gap: 0;
+  align-items: center;
+}
+.post-author-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.post-author-row > strong {
+  display: block;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.post-author-row > .post-time {
+  flex-shrink: 0;
+  margin: 0;
+  max-width: min(160px, 50%);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.post-card-header > .post-business-info {
+  grid-column: 1 / -1;
+}
+.post-card-header > button {
+  margin-block: -10px;
+}
+.post-header > div {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.post-header > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  color: var(--quiet);
+}
+.post-content .post-text {
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 14px 0 8px;
+  overflow-wrap: anywhere;
+}
+.post-content .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  margin-bottom: 14px;
+  font-size: 12px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.tags a {
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+}
+.tags a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.post-actions {
+  gap: 16px;
+  padding-top: 8px;
+  padding-bottom: 16px;
+}
+.post-actions button {
+  min-width: 44px;
+  min-height: 44px;
+  justify-content: center;
+  color: var(--quiet);
+  font-size: 12px;
+}
+.post .location {
+  font-size: 11px;
+  color: #3c4056;
+}
+.post .image-index {
+  display: none;
+}
+.post .sound-toggle {
+  width: 44px;
+  height: 44px;
+}
+.feed-opportunities-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+  color: #5a3fb0;
+  font-size: 13px;
+  font-weight: 600;
+}
+.discovery .search {
+  min-height: 48px;
+}
+.discovery .search input {
+  font-size: 12px;
+  color: var(--ink);
+}
+.discovery .search input::placeholder {
+  color: var(--quiet);
+}
+.recommended-connections {
+  margin: 28px 0;
+}
+.recommended-connections.is-inline {
+  display: none;
+}
+.connections-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.connections-heading h2 {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.connections-heading p {
+  font-size: 12px;
+  color: var(--quiet);
+  margin-top: 5px;
+  line-height: 1.5;
+}
+.connections-heading > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  color: #5a3fb0;
+}
+.connection-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.connection-card {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 8px 10px;
+  align-items: start;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+.connection-card .avatar {
+  width: 36px;
+  height: 36px;
+  font-size: 11px;
+  border-width: 2px;
+}
+.connection-info {
+  min-width: 0;
+}
+.connection-info strong {
+  display: block;
+  font-size: 13px;
+}
+.connection-info small {
+  display: block;
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--quiet);
+  margin-top: 4px;
+}
+.connection-info p {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--quiet);
+  margin-top: 6px;
+}
+.connection-follow {
+  grid-column: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid #d6c9f6;
+  color: #4d3098;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  justify-self: start;
+}
+.connection-follow.is-following {
+  background: var(--lime);
+}
+.discovery .section-label h3 {
+  font-size: 15px;
+}
+.discovery .topic strong {
+  font-size: 13px;
+}
+.discovery .topic small {
+  font-size: 12px;
+  color: var(--quiet);
+}
+.discovery .side-footer {
+  font-size: 11px;
+  color: var(--quiet);
+}
+.compose-modal {
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+}
+.compose-modal .compose-field {
+  display: flex;
+  align-items: stretch;
+}
+.compose-modal > .compose-opportunity-fields {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+}
+.compose-field > span {
+  font-size: 12px;
+}
+.compose-field input,
+.compose-field select {
+  font-size: 14px;
+  min-height: 44px;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: white;
+  color: var(--ink);
+}
+.compose-modal textarea {
+  font-size: 15px;
+  min-height: 140px;
+  margin-top: 14px;
+}
+.compose-modal p,
+.compose-modal small,
+.compose-tabs button {
+  font-size: 12px;
+}
+.compose-modal input:focus-visible,
+.compose-modal select:focus-visible {
+  outline: 2px solid #6540c8;
+  outline-offset: 2px;
+}
+@media (max-width: 960px) {
+  .recommended-connections.is-inline {
+    display: block;
+    padding: 20px;
+    background: #faf9fe;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    margin: 8px 0 28px;
+  }
+  .is-inline .connection-list {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 12px;
+    padding-bottom: 8px;
+    scroll-snap-type: x proximity;
+  }
+  .is-inline .connection-card {
+    flex: 0 0 230px;
+    padding: 14px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    scroll-snap-align: start;
+  }
+}
+@media (max-width: 600px) {
+  .feed {
+    padding: 16px 14px 112px;
+  }
+  .feed-header.is-sticky {
+    margin: -16px -14px 0;
+    padding: 10px 14px;
+  }
+  .feed-header {
+    gap: 6px;
+  }
+  .home-page-title {
+    display: none;
+  }
+  .feed-header-left {
+    margin-right: auto;
+  }
+  .feed .brand-logo.is-compact {
+    width: 112px;
+    height: 34px;
+  }
+  .feed-header-right {
+    gap: 0;
+  }
+  .home-feed-controls {
+    display: none;
+  }
+  .home-compose-prompt {
+    margin-top: 16px;
+  }
+  .home-compose-prompt {
+    padding: 12px;
+    gap: 10px;
+    font-size: 13px;
+  }
+  .home-compose-prompt .avatar {
+    width: 36px;
+    height: 36px;
+  }
+  .home-compose-prompt small {
+    font-size: 12px;
+  }
+  .post-body {
+    margin-left: 0;
+    padding: 16px 0 0;
+    gap: 8px;
+  }
+  .post-body > .profile-avatar-link .avatar {
+    width: 34px;
+    height: 34px;
+    font-size: 10px;
+    border-width: 2px;
+  }
+  .post-content .post-header {
+    margin: 0;
+  }
+  .post-header {
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .post-header strong {
+    font-size: 14px;
+  }
+  .post-header small,
+  .post-time {
+    font-size: 12px;
+  }
+  .post-content .post-text {
+    font-size: 15px;
+  }
+  .post .post-media {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .post-actions {
+    padding-left: 42px;
+    padding-right: 0;
+    gap: 8px;
+  }
+  .post .location {
+    left: 8px;
+    bottom: 8px;
+    font-size: 10px;
+    padding: 6px;
+    max-width: calc(100% - 64px);
+  }
+  .post .sound-toggle {
+    bottom: 8px;
+    right: 8px;
+  }
+  .recommended-connections.is-inline {
+    padding: 16px;
+  }
+  .is-inline .connection-card {
+    flex-basis: 220px;
+  }
+  .mobile-bottom-nav {
+    padding-top: 8px;
+    padding-bottom: max(8px, env(safe-area-inset-bottom));
+    min-height: 68px;
+  }
+  .mobile-nav-item {
+    min-height: 48px;
+    font-size: 10px;
+    gap: 5px;
+  }
+  .mobile-nav-item.selected {
+    color: #4d3098;
+  }
+  .mobile-nav-item.selected > svg {
+    background: var(--lime);
+    box-shadow: 0 0 0 5px var(--lime);
+    border-radius: 6px;
+  }
+  .mobile-post-button {
+    align-self: center;
+    margin-top: -20px;
+  }
+  .notice {
+    bottom: calc(84px + env(safe-area-inset-bottom));
+    font-size: 12px;
+  }
+  .reel {
+    padding-bottom: calc(68px + env(safe-area-inset-bottom));
+  }
+  .reel-frame {
+    max-height: calc(100dvh - 68px - env(safe-area-inset-bottom));
+  }
+  .compose-modal {
+    padding: 20px;
+  }
+  .compose-field input,
+  .compose-field select,
+  .compose-modal textarea {
+    font-size: 16px;
+  }
+}
+@media (max-width: 360px) {
+  .feed {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .feed-header.is-sticky {
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .feed .brand-logo.is-compact {
+    width: 100px;
+  }
+  .post-actions {
+    gap: 4px;
+  }
+  .post-actions button {
+    gap: 4px;
+  }
+}

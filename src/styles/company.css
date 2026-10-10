@@ -1,0 +1,279 @@
+/* Profile — Profil Perusahaan tab */
+.profile-company {
+  margin-top: 22px;
+}
+.company-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 1px 0 #eef0fa;
+}
+.company-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 22px;
+  background: linear-gradient(120deg, #dbe4ff 0%, #c4b5ff 45%, #9d8cff 100%);
+}
+.company-header:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 82% 24%, #ffffff55 0%, transparent 45%);
+  pointer-events: none;
+}
+.company-logo {
+  position: relative;
+  z-index: 1;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--ink);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.company-title {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-width: 0;
+}
+.company-title h3 {
+  font-family: var(--font-barlow), sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1;
+  margin: 0 0 4px;
+  letter-spacing: -0.3px;
+  color: #fff;
+}
+.company-title small {
+  font-size: 10px;
+  color: #ffffffd9;
+  font-weight: 600;
+}
+.company-verified {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #ffffffd9;
+  border: 1px solid #ffffff80;
+  color: #5a3fb0;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 20px;
+}
+.company-desc {
+  font-size: 11px;
+  line-height: 1.8;
+  color: #4a4f6e;
+  margin: 0;
+  padding: 18px 22px 4px;
+}
+.company-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 14px 22px 4px;
+}
+.company-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 7px 12px;
+  border-radius: 20px;
+  background: #eef0fa;
+  border: 0;
+  color: #4a4f6e;
+}
+.company-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--line);
+  border-top: 1px solid var(--line);
+  margin-top: 18px;
+}
+.company-field {
+  background: #fff;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+.company-field small {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--quiet);
+  font-weight: 700;
+}
+.company-field strong {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink);
+  word-break: break-word;
+}
+
+/* Profile — Video Profil Perusahaan */
+.company-video {
+  margin: 16px 22px 4px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0a0820;
+  box-shadow: 0 1px 0 #eef0fa;
+}
+.company-video-frame {
+  position: relative;
+  aspect-ratio: 16/9;
+  background: #0a0820;
+  overflow: hidden;
+}
+.company-video-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #0a0820;
+}
+.company-video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: #ffffffd9;
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 18px #1b183855;
+  transition:
+    background 0.18s,
+    transform 0.18s;
+}
+.company-video-play:hover {
+  background: #fff;
+}
+.company-video-play:active {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+.company-video-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #1b183899;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+  backdrop-filter: blur(4px);
+}
+.company-video-badge svg {
+  color: #c9b8ff;
+}
+.company-video-mute {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #1b183899;
+  color: #fff;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 10px #1b183840;
+  transition:
+    background 0.18s,
+    transform 0.18s;
+}
+.company-video-mute:hover {
+  background: #1b1838cc;
+}
+.company-video-mute:active {
+  transform: scale(0.92);
+}
+.company-video-duration {
+  position: absolute;
+  right: 12px;
+  bottom: 14px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #1b183899;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+.company-video-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  height: 5px;
+  background: #ffffff33;
+  cursor: pointer;
+  overflow: hidden;
+}
+.company-video-progress span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: #7c4dff;
+  border-radius: 0;
+  transition: width 0.12s linear;
+}
+@media (max-width: 600px) {
+  .company-video {
+    margin: 14px 14px 4px;
+  }
+  .company-video-play {
+    width: 54px;
+    height: 54px;
+  }
+  .company-video-duration {
+    font-size: 9px;
+    padding: 3px 7px;
+  }
+}
+@media (max-width: 600px) {
+  .company-grid {
+    grid-template-columns: 1fr;
+  }
+  .company-title h3 {
+    font-size: 22px;
+  }
+  .company-verified {
+    display: none;
+  }
+}

@@ -1,0 +1,302 @@
+/* Reference feed: quiet lavender canvas, compact media, and divided rows. */
+.stream-feed {
+  --stream-line: #e9e5f4;
+  background: #faf8ff;
+  padding-inline: 26px;
+}
+.stream-feed .feed-header.is-sticky {
+  background: #faf8fff5;
+}
+.stream-feed .home-compose-prompt {
+  border: 0;
+  border-bottom: 1px solid var(--stream-line);
+  border-radius: 0;
+  background: transparent;
+  padding: 8px 0 16px;
+  margin: 0;
+  gap: 8px;
+  font-weight: 400;
+}
+.stream-feed .home-compose-prompt > span:nth-child(2) {
+  border: 1px solid #e4e2f5;
+  background: #f3f2ff;
+  border-radius: 999px;
+  min-height: 44px;
+  padding: 11px 14px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.stream-feed .home-compose-prompt:hover > span:nth-child(2) {
+  background: #eeebfd;
+}
+.stream-feed .post {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--stream-line);
+  border-radius: 0;
+  margin: 0;
+  padding: 24px 0 6px;
+}
+.stream-feed .post-body {
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+.stream-feed .post .avatar,
+.stream-feed .post-body > .profile-avatar-link .avatar,
+.stream-feed .home-compose-prompt .avatar {
+  width: 40px;
+  height: 40px;
+  border-width: 2px;
+}
+.stream-feed .recommended-connections.is-inline {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--stream-line);
+  border-radius: 0;
+  margin: 0;
+  padding: 20px 0;
+}
+.stream-feed .post-header strong {
+  font-size: 17px;
+  letter-spacing: -0.5px;
+  line-height: 1.5;
+}
+.stream-feed .post-time {
+  font-size: 11px;
+}
+.stream-feed .post-header small {
+  margin-top: 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.post-card-header .post-business-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 8px;
+}
+.post-card-header .post-business-info > span:first-child {
+  color: var(--quiet);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.post-card-header .post-business-info .post-category {
+  font-size: 10px;
+  line-height: 1.5;
+  color: #472181;
+  background: #ebddff;
+  border-radius: 999px;
+  padding: 1px 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.post-card-header .post-business-info .category-hiring {
+  background: #ccecff;
+  color: #235574;
+}
+.post-card-header .post-business-info .category-update {
+  background: #dde4ff;
+  color: #284a9c;
+}
+.post-menu {
+  position: relative;
+  justify-self: end;
+  width: 44px;
+  height: 24px;
+  overflow: visible !important;
+  z-index: 5;
+}
+.post-menu > button {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  margin-top: -10px;
+  color: var(--quiet);
+}
+.post-menu-panel {
+  position: absolute;
+  top: 34px;
+  right: 0;
+  min-width: 164px;
+  padding: 5px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 8px 24px #1b183819;
+}
+.post-menu-panel button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  width: 100%;
+  padding: 8px 12px;
+  text-align: left;
+  border-radius: 8px;
+  color: var(--quiet);
+  font-size: 12px;
+}
+.post-menu-panel button:hover {
+  background: #f3f2ff;
+}
+.stream-feed .post-content .post-text {
+  font-size: 15px;
+  line-height: 1.65;
+  margin: 12px 0 4px;
+}
+.stream-feed .post-content .tags {
+  gap: 2px 8px;
+  font-size: 11px;
+  margin: 0 0 8px;
+}
+.stream-feed .post-actions {
+  justify-content: space-between;
+  gap: 8px;
+  padding: 2px 0 0 48px;
+}
+.stream-feed .post-actions button {
+  justify-content: flex-start;
+  color: #4d5066;
+  font-size: 11px;
+  gap: 6px;
+}
+.stream-feed .post-actions .save-button {
+  margin-left: 0;
+  justify-content: flex-end;
+}
+.stream-feed .post-actions .is-liked {
+  color: #db1729;
+}
+.post-actions .is-reposted {
+  color: #326c5a;
+}
+.stream-feed .post-actions .is-reposted {
+  color: #326c5a;
+}
+.stream-feed .post-actions .is-saved {
+  color: #6540c8;
+}
+.feed-gallery {
+  --gallery-size: 192px;
+  margin: 4px 0 0;
+  min-width: 0;
+}
+.feed-gallery-track {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  border-radius: 16px;
+  padding-right: max(0px, calc(100% - var(--gallery-size)));
+}
+.feed-gallery-track::-webkit-scrollbar {
+  display: none;
+}
+.feed-gallery-item {
+  position: relative;
+  flex: 0 0 min(var(--gallery-size), 100%);
+  width: var(--gallery-size);
+  aspect-ratio: 1;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--stream-line);
+  border-radius: 16px;
+  scroll-snap-align: start;
+}
+.feed-gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.feed-gallery-count {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 1px 7px;
+  font-size: 10px;
+  background: #ffffffed;
+  color: #44485c;
+  border-radius: 999px;
+}
+.feed-gallery-dots {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin: 0 0 -4px -8px;
+  min-height: 36px;
+}
+.feed-gallery-dots button {
+  width: 24px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+}
+.feed-gallery-dots button span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e5e0ef;
+}
+.feed-gallery-dots button[aria-pressed="true"] span {
+  background: #2860d9;
+}
+.stream-feed .post-content .post-media.is-video {
+  width: min(192px, 100%);
+  aspect-ratio: 1;
+  margin: 8px 0 4px;
+  border: 1px solid var(--stream-line);
+  border-radius: 16px;
+  background: #eeebf5;
+}
+.stream-feed .post-media video {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+.stream-feed .post-media .location {
+  display: none;
+}
+.stream-feed .post-media .sound-toggle svg {
+  width: 16px;
+  height: 16px;
+}
+@media (max-width: 600px) {
+  .stream-feed {
+    padding-inline: 20px;
+  }
+  .stream-feed .post {
+    padding-top: 20px;
+  }
+  .stream-feed .post-header strong {
+    font-size: 16px;
+  }
+  .stream-feed .post-author-row {
+    gap: 6px;
+  }
+  .stream-feed .feed-header.is-sticky {
+    margin-inline: -20px;
+    padding-inline: 20px;
+  }
+}
+@media (max-width: 360px) {
+  .stream-feed {
+    padding-inline: 12px;
+  }
+  .stream-feed .home-compose-prompt > span:nth-child(2) {
+    font-size: 12px;
+  }
+  .stream-feed .post-header strong {
+    font-size: 14px;
+  }
+  .stream-feed .feed-header.is-sticky {
+    margin-inline: -12px;
+    padding-inline: 12px;
+  }
+}

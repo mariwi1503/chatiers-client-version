@@ -1,0 +1,543 @@
+/* Reel vertikal 9:16; pada layar kecil, bingkai berhenti tepat sebelum navigasi bawah. */
+.reel-frame {
+  flex: 0 0 auto;
+  width: min(100vw, 56.25dvh);
+  height: auto;
+  max-width: 100vw;
+  max-height: 100dvh;
+  aspect-ratio: 9/16;
+}
+@media (max-width: 600px) {
+  .reel {
+    box-sizing: border-box;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: calc(56px + env(safe-area-inset-bottom));
+  }
+  .reel-frame {
+    width: min(100vw, calc(56.25dvh - 31.5px - env(safe-area-inset-bottom)));
+    max-height: calc(100dvh - 56px - env(safe-area-inset-bottom));
+  }
+  .reel-info {
+    bottom: 0;
+    padding: 28px 70px 10px 18px;
+  }
+  .reel-side {
+    bottom: 16px;
+  }
+  .reel-sound-toggle {
+    bottom: 16px;
+    right: 62px;
+  }
+  .reel-frame.is-comments .reel-comments {
+    height: 64%;
+    max-height: none;
+  }
+}
+
+/* Transisi buka komentar: video dan lembar komentar berubah ukuran bersamaan. */
+.reel-frame {
+  transition:
+    width 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    max-height 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reel-media {
+  height: 100%;
+  flex: none;
+  transition: height 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reel-media img {
+  object-fit: cover;
+  transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reel-frame.is-comments .reel-media {
+  height: 36%;
+  min-height: 0;
+  flex: none;
+}
+.reel-frame.is-comments .reel-media img {
+  object-fit: contain;
+  background: #000;
+}
+.reel-info,
+.reel-side,
+.reel-sound-toggle,
+.reel-play {
+  transition:
+    opacity 0.28s ease,
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reel-frame.is-comments .reel-info,
+.reel-frame.is-comments .reel-side,
+.reel-frame.is-comments .reel-play {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+}
+.reel-frame.is-comments .reel-sound-toggle {
+  opacity: 1;
+  transform: none;
+}
+.reel-comments {
+  position: relative;
+  z-index: 5;
+  height: 0;
+  min-height: 0;
+  flex: none;
+  max-height: none;
+  margin-top: 0;
+  padding: 0 16px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(28px);
+  border-radius: 18px 18px 0 0;
+  background: #1b1838;
+  color: #fff;
+  box-shadow: 0 -10px 28px #00000033;
+  transition:
+    height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.32s ease,
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    margin-top 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    padding 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reel-comments.is-open,
+.reel-frame.is-comments .reel-comments {
+  height: 64%;
+  margin-top: -14px;
+  padding: 12px 16px 14px;
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+}
+.reel-comments-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff14;
+  border: 1px solid #ffffff26;
+  border-radius: 22px;
+  padding: 10px 14px;
+  color: #ffffff99;
+  margin-bottom: 8px;
+}
+.reel-comments-search span {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  flex-shrink: 0;
+}
+.reel-comments-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 13px;
+  outline: none;
+}
+.reel-comments-search input::placeholder {
+  color: #ffffff80;
+}
+.reel-comments .reel-comments-head {
+  position: relative;
+  justify-content: center;
+  border-bottom: 0;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 6px 36px 10px;
+  margin: 0;
+}
+.reel-comments .reel-comments-head button {
+  position: absolute;
+  right: 0;
+  top: 2px;
+  color: #fff;
+  background: transparent;
+  padding: 6px;
+}
+.reel-comments .reel-comments-head button:hover {
+  background: #ffffff1f;
+}
+.reel-comments .comment-thread {
+  min-height: 0;
+}
+.reel-comments .chat-list {
+  gap: 14px;
+}
+.reel-comments form {
+  border-top: 1px solid #ffffff22;
+  padding-top: 8px;
+}
+.reel-comments form input,
+.reel-comments .reply-form input {
+  background: #ffffff14;
+  color: #fff;
+  border: 1px solid #ffffff26;
+  border-radius: 22px;
+}
+.reel-comments form input::placeholder,
+.reel-comments .reply-form input::placeholder {
+  color: #ffffff80;
+}
+.reel-comments form input:focus,
+.reel-comments .reply-form input:focus {
+  border-color: #7c4dff99;
+  background: #ffffff1f;
+  outline: none;
+}
+.reel-comments .reply-form .reply-cancel {
+  color: #fff;
+  background: transparent;
+}
+@media (max-width: 600px) {
+  .reel-frame.is-comments {
+    width: 100%;
+    max-height: calc(100dvh - 56px - env(safe-area-inset-bottom));
+  }
+  .reel-frame.is-comments .reel-media {
+    height: 32%;
+  }
+  .reel-frame.is-comments .reel-comments,
+  .reel-comments.is-open {
+    height: 68%;
+  }
+}
+
+/* Full-screen post + comments overlay (klik komentar) */
+.post-comments-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+}
+.post-comments-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  padding-top: calc(14px + env(safe-area-inset-top));
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  flex: none;
+}
+.post-comments-bar > span {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.post-comments-bar > button {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: #4a4f6e;
+  background: transparent;
+}
+.post-comments-bar > button:hover {
+  background: #eef0fa;
+  color: var(--ink);
+}
+.post-comments-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  display: flex;
+  flex-direction: column;
+}
+.post-comments-post {
+  margin: 0;
+  border-radius: 0;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+.post-comments-post .post-body {
+  padding: 18px 18px 0;
+}
+.post-comments-post .post-actions {
+  padding: 17px 18px;
+}
+.post-comments-thread {
+  flex: 1;
+  min-height: 0;
+  padding: 16px 18px 0;
+  background: var(--paper);
+}
+.post-comments-thread .comment-thread {
+  min-height: 0;
+}
+.post-comments-thread .comment-thread > form {
+  position: sticky;
+  bottom: 0;
+  background: var(--paper);
+  margin: 0 -18px;
+  padding: 12px 18px calc(12px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--line);
+  box-shadow: 0 -6px 18px #1b18380d;
+  z-index: 3;
+}
+@media (max-width: 600px) {
+  .post-comments-bar {
+    padding: 12px 14px;
+    padding-top: calc(12px + env(safe-area-inset-top));
+  }
+  .post-comments-post .post-body {
+    margin-left: 0;
+    padding: 16px 16px 0;
+  }
+  .post-comments-post .post-actions {
+    padding: 15px 16px;
+  }
+  .post-comments-thread {
+    padding: 14px 16px 0;
+  }
+  .post-comments-post .post-media {
+    margin: 0 0 15px;
+  }
+  .post-comments-thread .comment-thread > form {
+    margin: 0 -16px;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  }
+}
+
+/* Reply mode replaces the regular composer — one bar, never inline between comments */
+.comment-thread > form.is-reply {
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 8px;
+}
+.comment-thread > form .reply-banner {
+  flex: 1 0 100%;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 28px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #5a3fb0;
+}
+.comment-thread > form .reply-banner span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.comment-thread > form .reply-banner strong {
+  color: #3b6bff;
+  font-weight: 700;
+}
+.comment-thread > form .reply-banner .reply-cancel {
+  margin-left: auto;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  background: transparent;
+  color: #8a8fa8;
+  box-shadow: none;
+  border-radius: 50%;
+}
+.comment-thread > form .reply-banner .reply-cancel:hover {
+  background: #eef0fa;
+  color: var(--ink);
+}
+.comment-node.is-reply-target {
+  background: rgba(124, 77, 255, 0.07);
+  border-radius: 12px;
+  scroll-margin-bottom: 128px;
+  scroll-margin-top: 12px;
+}
+.reel-comments .comment-thread > form .reply-banner {
+  color: #b9a0ff;
+}
+.reel-comments .comment-thread > form .reply-banner strong {
+  color: #5b9cf6;
+}
+.reel-comments .comment-thread > form .reply-banner .reply-cancel {
+  background: transparent;
+  color: #fff;
+  box-shadow: none;
+}
+.reel-comments .comment-thread > form .reply-banner .reply-cancel:hover {
+  background: #ffffff1f;
+  color: #fff;
+}
+.reel-comments .comment-node.is-reply-target {
+  background: rgba(185, 160, 255, 0.14);
+}
+
+/* Comment frames: the list scrolls on its own; the composer is a footer, never an overlay. */
+.comment-thread {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.comment-thread > .chat-list {
+  flex: 1 1 auto;
+}
+.comment-thread > form {
+  position: relative;
+  bottom: auto;
+  flex: none;
+}
+.chat-list > .comment-node,
+.comment-replies > .comment-node {
+  position: relative;
+  flex: 0 0 auto;
+  width: 100%;
+  margin: 0;
+}
+
+.reel-comments.is-open,
+.reel-frame.is-comments .reel-comments {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+.reel-comments .reel-comments-search,
+.reel-comments .reel-comments-head {
+  flex: none;
+}
+.reel-comments .comment-thread {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.reel-comments .chat-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-bottom: 14px;
+  gap: 18px;
+}
+.reel-comments .comment-thread > form,
+.feed .reel-comments .comment-thread > form {
+  position: relative;
+  bottom: auto;
+  flex: none;
+  margin: 0 -16px 0;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  background: #1b1838;
+  border-top: 1px solid #ffffff22;
+  z-index: 4;
+}
+.reels-overlay:has(.reel-frame.is-comments) {
+  z-index: 80;
+}
+.reels-overlay:has(.reel-frame.is-comments) .reels-nav {
+  display: none;
+}
+
+.post-comments-scroll {
+  overflow: hidden;
+}
+.post-comments-post {
+  flex: none;
+  max-height: 42%;
+  overflow-y: auto;
+}
+.post-comments-thread {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.post-comments-thread .comment-thread {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+.post-comments-thread .chat-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding-bottom: 12px;
+}
+.post-comments-thread .comment-thread > form,
+.feed .post-comments-overlay .comment-thread > form {
+  position: relative;
+  bottom: auto;
+  flex: none;
+  z-index: 4;
+}
+
+.announce-detail-comments {
+  overflow: hidden;
+}
+.announce-detail-comments-head {
+  flex: none;
+}
+.announce-detail-comments .comments {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+.announce-detail-comments .comment-thread {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+.announce-detail-comments .chat-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding-bottom: 12px;
+}
+.announce-detail-comments .comment-thread > form {
+  position: relative;
+  bottom: auto;
+  flex: none;
+  background: #1b1838;
+  padding-bottom: calc(10px + env(safe-area-inset-bottom));
+  z-index: 4;
+}
+
+@media (max-width: 600px) {
+  .app-shell:has(.reel-frame.is-comments) .mobile-bottom-nav,
+  .app-shell:has(.post-comments-overlay) .mobile-bottom-nav {
+    display: none;
+  }
+  .reel:has(.reel-frame.is-comments) {
+    padding-bottom: 0;
+    align-items: stretch;
+  }
+  .reel-frame.is-comments {
+    aspect-ratio: auto;
+    width: 100%;
+    height: 100dvh;
+    max-width: 100%;
+    max-height: 100dvh;
+  }
+  .reel-frame.is-comments .reel-media {
+    height: 28%;
+    flex: none;
+    min-height: 0;
+  }
+  .reel-frame.is-comments .reel-comments,
+  .reel-comments.is-open {
+    height: auto;
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: none;
+  }
+  .post-comments-thread .comment-thread > form {
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
+  }
+}

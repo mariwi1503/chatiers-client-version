@@ -1,0 +1,251 @@
+/* Posting Quick Link — halaman pemilih jenis postingan */
+.posting-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 30px 24px 80px;
+  background: #fff;
+  min-height: 100dvh;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+}
+.posting-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 34px;
+}
+.posting-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--quiet);
+}
+.posting-back:hover {
+  color: var(--ink);
+}
+.posting-brand {
+  width: 140px;
+  height: 42px;
+  margin: 0;
+}
+.posting-hero {
+  margin-bottom: 30px;
+}
+.posting-hero h1 {
+  font-family: var(--font-barlow), sans-serif;
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.5px;
+  margin: 10px 0 12px;
+}
+.posting-hero p {
+  font-size: 12px;
+  line-height: 1.75;
+  color: #5a5f7e;
+  margin: 0;
+  max-width: 48ch;
+}
+.posting-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+.posting-card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  transition:
+    box-shadow 0.18s,
+    transform 0.18s,
+    border-color 0.18s;
+}
+.posting-card:hover {
+  box-shadow: 0 10px 26px #1b183814;
+  transform: translateY(-2px);
+  border-color: #d8dcf0;
+}
+.posting-card-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.posting-card-icon.yellow {
+  background: #ece6ff;
+  color: #6d5ddb;
+}
+.posting-card-icon.peach {
+  background: #dbe4ff;
+  color: #4d6db0;
+}
+.posting-card-icon.green {
+  background: #d4d8ff;
+  color: #4d5a9e;
+}
+.posting-card-icon.purple {
+  background: #d7cdee;
+  color: #776393;
+}
+.posting-card-icon.blue {
+  background: #c5dce6;
+  color: #4d7482;
+}
+.posting-card-body {
+  flex: 1;
+  min-width: 0;
+}
+.posting-card-body strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.posting-card-body p {
+  font-size: 10.5px;
+  line-height: 1.6;
+  color: #6a6f8a;
+  margin: 0;
+}
+.posting-card-arrow {
+  position: absolute;
+  top: 18px;
+  right: 16px;
+  color: #b9bed8;
+  display: grid;
+  place-items: center;
+}
+.posting-card:hover .posting-card-arrow {
+  color: #7c4dff;
+}
+.posting-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 44px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: 9px;
+  color: var(--quiet);
+}
+.posting-footer a:hover {
+  color: var(--ink);
+}
+.posting-card.posting-wfh {
+  grid-column: span 2;
+}
+@media (max-width: 600px) {
+  .posting-page {
+    padding: 24px 16px 90px;
+    border: 0;
+  }
+  .posting-hero h1 {
+    font-size: 34px;
+  }
+  .posting-grid {
+    grid-template-columns: 1fr;
+  }
+  .posting-card.posting-wfh {
+    grid-column: auto;
+  }
+}
+
+/* Composer — tab jenis postingan + field media/custom */
+.compose-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 14px 0 4px;
+}
+.compose-tabs button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 13px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  font-size: 10px;
+  font-weight: 600;
+  color: #6a6f8a;
+}
+.compose-tabs button:hover {
+  background: #eef0fa;
+  color: var(--ink);
+}
+.compose-tabs button.active {
+  background: var(--lime);
+  color: #5a3fb0;
+}
+.compose-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 12px 0 0;
+}
+.compose-field > span {
+  font-size: 10px;
+  font-weight: 700;
+  color: #4a4f6e;
+}
+.compose-field input {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 8px;
+  padding: 11px 13px;
+  font-size: 11px;
+  color: var(--ink);
+  outline: none;
+  transition:
+    border-color 0.18s,
+    box-shadow 0.18s;
+}
+.compose-field input:focus {
+  border-color: #9d8cff;
+  box-shadow: 0 0 0 3px #7c4dff33;
+}
+.compose-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #6a6f8a;
+  margin-top: 8px;
+}
+.compose-check input {
+  width: auto;
+}
+.compose-preview {
+  margin-top: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.compose-preview img {
+  width: 100%;
+  aspect-ratio: 1.6;
+  object-fit: cover;
+  display: block;
+}
+.compose-link-row {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 12px;
+}
+@media (max-width: 600px) {
+  .compose-link-row {
+    grid-template-columns: 1fr;
+  }
+}

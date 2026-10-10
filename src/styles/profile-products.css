@@ -1,0 +1,114 @@
+/* Profile — Produk tab */
+.profile-products {
+  margin-top: 22px;
+}
+.products-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.products-head h3 {
+  font-family: var(--font-barlow), sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+.products-head small {
+  font-size: 10px;
+  color: var(--quiet);
+  font-weight: 600;
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.product-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  transition:
+    box-shadow 0.18s,
+    transform 0.18s;
+}
+.product-card:hover {
+  box-shadow: 0 8px 22px #1b183814;
+  transform: translateY(-2px);
+}
+.product-media {
+  position: relative;
+  aspect-ratio: 1.2;
+  overflow: hidden;
+  background: #eef0fa;
+}
+.product-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.product-category {
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #ffffffd9;
+  color: #4a4f6e;
+  font-size: 8px;
+  font-weight: 700;
+  padding: 5px 8px;
+  border-radius: 20px;
+  letter-spacing: 0.4px;
+}
+.product-body {
+  padding: 13px 14px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.product-body strong {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.product-body p {
+  font-size: 10px;
+  line-height: 1.6;
+  color: #5a5f7e;
+  margin: 0;
+}
+.product-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+.product-price {
+  font-family: var(--font-barlow), sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.product-foot button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #5a3fb0;
+  background: var(--lime);
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+.product-foot button:hover {
+  background: #dcd0ff;
+}
+@media (max-width: 600px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
